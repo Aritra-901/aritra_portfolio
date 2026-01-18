@@ -2,16 +2,17 @@
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(15, 15, 15, 0.95);
+  background: rgba(15, 15, 15, 0.98);
   backdrop-filter: blur(10px);
   z-index: 1000;
-  border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+  border-bottom: none;
+  box-shadow: none;
 }
 
 .navbar-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem 20px;
+  padding: 0.5rem 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,6 +24,7 @@
   font-size: 1.5rem;
   font-weight: 700;
   cursor: pointer;
+  z-index: 1001;
 }
 
 .logo-text {
@@ -54,6 +56,7 @@
 
 .nav-link:hover {
   color: #00d4ff;
+  transform: translateY(-2px);
 }
 
 .nav-link::after {
@@ -78,6 +81,8 @@
   border: none;
   cursor: pointer;
   gap: 6px;
+  z-index: 1001;
+  padding: 5px;
 }
 
 .hamburger span {
@@ -88,7 +93,16 @@
   transition: all 0.3s ease;
 }
 
+.hamburger:hover span {
+  background: #00d4ff;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
 @media (max-width: 768px) {
+  .navbar {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+
   .navbar-container {
     padding: 0.75rem 15px;
   }
@@ -102,27 +116,42 @@
     top: 60px;
     left: 0;
     right: 0;
-    bottom: 0;
-    background: rgba(15, 15, 15, 0.98);
+
+    background: rgba(15, 15, 15, 0.99);
     flex-direction: column;
     gap: 0;
     padding: 0;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease;
-    border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+    transition: max-height 0.4s ease;
+    border-top: 1px solid rgba(0, 212, 255, 0.2);
+    backdrop-filter: blur(15px);
+    display: flex !important;
   }
 
   .navbar-menu.active {
-    max-height: calc(100vh - 60px);
+    max-height: 500px;
+    box-shadow: 0 10px 40px rgba(0, 212, 255, 0.1);
   }
 
   .nav-link {
-    font-size: 1rem;
-    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    padding: 1.2rem 1.5rem;
     border-bottom: 1px solid rgba(0, 212, 255, 0.1);
     width: 100%;
     text-align: left;
+    color: #e0e0e0;
+    transition: all 0.3s ease;
+  }
+
+  .nav-link:hover {
+    background: rgba(0, 212, 255, 0.05);
+    color: #00d4ff;
+    padding-left: 2rem;
+  }
+
+  .nav-link::after {
+    display: none;
   }
 
   .logo-text {
@@ -132,15 +161,20 @@
 
 @media (max-width: 480px) {
   .navbar-container {
-    padding: 0.75rem 10px;
+    padding: 0.3rem 8px;
   }
 
   .navbar-logo {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .hamburger span {
     width: 20px;
     height: 2.5px;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+    padding: 0.8rem 1rem;
   }
 }

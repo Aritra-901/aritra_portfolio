@@ -34,111 +34,42 @@
   order: -1;
 }
 
-.tech-scatter-container {
+.globe-container {
   width: 100%;
   height: 500px;
   position: relative;
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.08) 0%, rgba(0, 153, 255, 0.05) 100%);
-  border: 2px solid rgba(0, 212, 255, 0.15);
+  background: transparent;
+  border: none;
   border-radius: 25px;
-  overflow: hidden;
-  box-shadow: 
-    0 0 60px rgba(0, 212, 255, 0.1),
-    inset 0 0 60px rgba(0, 212, 255, 0.05);
-}
-
-/* Floating Icons */
-.floating-icon {
-  position: absolute;
-  animation: float-bounce var(--duration) ease-in-out infinite;
-  animation-delay: var(--delay);
-}
-
-/* Position each icon uniquely scattered */
-.floating-icon:nth-child(1) { top: 10%; left: 8%; }
-.floating-icon:nth-child(2) { top: 15%; left: 25%; }
-.floating-icon:nth-child(3) { top: 5%; left: 42%; }
-.floating-icon:nth-child(4) { top: 20%; left: 60%; }
-.floating-icon:nth-child(5) { top: 8%; right: 10%; }
-.floating-icon:nth-child(6) { top: 35%; left: 5%; }
-.floating-icon:nth-child(7) { top: 38%; left: 18%; }
-.floating-icon:nth-child(8) { top: 32%; left: 35%; }
-.floating-icon:nth-child(9) { top: 40%; right: 8%; }
-.floating-icon:nth-child(10) { top: 30%; right: 22%; }
-.floating-icon:nth-child(11) { bottom: 15%; left: 10%; }
-.floating-icon:nth-child(12) { bottom: 10%; left: 28%; }
-.floating-icon:nth-child(13) { bottom: 20%; left: 45%; }
-.floating-icon:nth-child(14) { bottom: 25%; right: 15%; }
-.floating-icon:nth-child(15) { bottom: 8%; right: 8%; }
-.floating-icon:nth-child(16) { top: 55%; left: 12%; }
-.floating-icon:nth-child(17) { top: 60%; left: 50%; }
-.floating-icon:nth-child(18) { top: 50%; right: 18%; }
-.floating-icon:nth-child(19) { bottom: 35%; right: 5%; }
-.floating-icon:nth-child(20) { bottom: 40%; left: 65%; }
-
-@keyframes float-bounce {
-  0%, 100% {
-    transform: translateY(0px) translateX(0px);
-  }
-  25% {
-    transform: translateY(-15px) translateX(8px);
-  }
-  50% {
-    transform: translateY(-25px) translateX(-10px);
-  }
-  75% {
-    transform: translateY(-10px) translateX(12px);
-  }
-}
-
-.icon-box {
-  width: 70px;
-  height: 70px;
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 153, 255, 0.05) 100%);
-  border: 2px solid rgba(0, 212, 255, 0.25);
-  border-radius: 15px;
+  overflow: visible;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  perspective: 1200px;
+}
+
+.rotating-globe {
+  width: 350px;
+  height: 350px;
   position: relative;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.icon-box:hover {
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.25) 0%, rgba(0, 153, 255, 0.15) 100%);
-  border-color: rgba(0, 212, 255, 0.6);
-  transform: scale(1.2);
-  box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
-}
-
-.icon-box i {
-  font-size: 2.2rem;
-  filter: drop-shadow(0 0 8px currentColor);
-  transition: all 0.3s ease;
-}
-
-.icon-box:hover i {
-  font-size: 2.6rem;
-  filter: drop-shadow(0 0 16px currentColor);
-}
-
-.icon-name {
+.globe-icon {
   position: absolute;
-  bottom: -28px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.7);
-  white-space: nowrap;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.4));
 }
 
-.floating-icon:hover .icon-name {
-  opacity: 1;
-}
+
 
 /* About Text Section */
 .about-text {
@@ -301,40 +232,14 @@
     font-size: 2.2rem;
   }
 
-  .tech-globe-container {
-    height: 420px;
+  .globe-container {
+    width: 280px;
+    height: 280px;
   }
 
-  .globe-core {
-    width: 250px;
-    height: 250px;
-  }
-
-  .orbit-ring.orbit-1 {
-    width: 250px;
-    height: 250px;
-  }
-
-  .orbit-ring.orbit-2 {
-    width: 180px;
-    height: 180px;
-    top: 35px;
-    left: 35px;
-  }
-
-  .orbit-ring.orbit-3 {
-    width: 110px;
-    height: 110px;
-    top: 70px;
-    left: 70px;
-  }
-
-  .icon-wrapper i {
-    font-size: 1.5rem;
-  }
-
-  .icon-wrapper:hover i {
-    font-size: 2rem;
+  .globe-icon {
+    width: 50px;
+    height: 50px;
   }
 
   .about-stats {
@@ -379,62 +284,27 @@
     margin-bottom: 1.5rem;
   }
 
-  .tech-globe-container {
+  .globe-container {
+    width: 100%;
     height: 350px;
   }
 
-  .globe-core {
-    width: 200px;
-    height: 200px;
-  }
-
-  .orbit-ring.orbit-1 {
-    width: 200px;
-    height: 200px;
-  }
-
-  .orbit-ring.orbit-2 {
-    width: 140px;
-    height: 140px;
-    top: 30px;
-    left: 30px;
-  }
-
-  .orbit-ring.orbit-3 {
-    width: 80px;
-    height: 80px;
-    top: 60px;
-    left: 60px;
-  }
-
-  .icon-wrapper i {
-    font-size: 1.2rem;
-  }
-
-  .icon-wrapper:hover i {
-    font-size: 1.6rem;
-  }
-
-  .tech-label {
-    font-size: 0.65rem;
+  .globe-icon {
+    width: 45px;
+    height: 45px;
   }
 
   .about-stats {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin-top: 2rem;
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .stat {
-    padding: 1.5rem;
+    padding: 1rem;
   }
 
   .stat h3 {
-    font-size: 2rem;
-  }
-
-  .stat p {
-    font-size: 0.9rem;
+    font-size: 1.8rem;
   }
 }
 
@@ -454,45 +324,14 @@
     margin-bottom: 1.5rem;
   }
 
-  .tech-globe-container {
-    height: 280px;
+  .globe-container {
+    width: 100%;
+    height: 300px;
   }
 
-  .globe-core {
-    width: 150px;
-    height: 150px;
-  }
-
-  .orbit-ring.orbit-1 {
-    width: 150px;
-    height: 150px;
-  }
-
-  .orbit-ring.orbit-2 {
-    width: 105px;
-    height: 105px;
-    top: 22.5px;
-    left: 22.5px;
-  }
-
-  .orbit-ring.orbit-3 {
-    width: 60px;
-    height: 60px;
-    top: 45px;
-    left: 45px;
-    display: none;
-  }
-
-  .icon-wrapper i {
-    font-size: 1rem;
-  }
-
-  .icon-wrapper:hover i {
-    font-size: 1.3rem;
-  }
-
-  .tech-label {
-    font-size: 0.6rem;
+  .globe-icon {
+    width: 35px;
+    height: 35px;
   }
 
   .about-stats {

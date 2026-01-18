@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -16,38 +17,73 @@ const Navbar = () => {
     }
   };
 
+  const menuVariants = {
+    hidden: { opacity: 0, y: -10 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.3 },
+    },
+  };
+
+  const navLinks = [
+    { label: 'Home', id: 'home' },
+    { label: 'About', id: 'about' },
+    { label: 'Skills', id: 'skills' },
+    { label: 'Projects', id: 'works' },
+    { label: 'Contact', id: 'contact' },
+  ];
+
   return (
-    <nav className="navbar">
+    <motion.nav
+      className="navbar"
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="navbar-container">
-        <div className="navbar-logo">
+        <motion.div
+          className="navbar-logo"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+        >
           <span className="logo-text">Portfolio</span>
-        </div>
+        </motion.div>
 
-        <div className={`navbar-menu ${menuOpen ? 'active' : ''}`}>
-          <button onClick={() => scrollToSection('home')} className="nav-link">
-            Home
-          </button>
-          <button onClick={() => scrollToSection('about')} className="nav-link">
-            About
-          </button>
-          <button onClick={() => scrollToSection('skills')} className="nav-link">
-            Skills
-          </button>
-          <button onClick={() => scrollToSection('works')} className="nav-link">
-            Projects
-          </button>
-          <button onClick={() => scrollToSection('contact')} className="nav-link">
-            Contact
-          </button>
-        </div>
+        <motion.div
+          className={`navbar-menu ${menuOpen ? 'active' : ''}`}
+          initial={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
+          {navLinks.map((link, index) => (
+            <motion.button
+              key={link.id}
+              onClick={() => scrollToSection(link.id)}
+              className="nav-link"
+              whileHover={{ color: '#00d4ff', scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {link.label}
+            </motion.button>
+          ))}
+        </motion.div>
 
-        <button className="hamburger" onClick={toggleMenu}>
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+        <motion.button
+          className="hamburger"
+          onClick={toggleMenu}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          <motion.span
+            animate={menuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
+          />
+          <motion.span animate={menuOpen ? { opacity: 0 } : { opacity: 1 }} />
+          <motion.span
+            animate={menuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
+          />
+        </motion.button>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 

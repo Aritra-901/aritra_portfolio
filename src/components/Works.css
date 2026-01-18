@@ -1,6 +1,20 @@
 .works {
   padding: 80px 0;
   background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.works::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0, 153, 255, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
 }
 
 .works-subtitle {
@@ -28,11 +42,29 @@
   font-weight: 600;
   transition: all 0.3s ease;
   font-size: 0.95rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.filter-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #00d4ff 0%, #0099ff 100%);
+  transition: left 0.3s ease;
+  z-index: -1;
 }
 
 .filter-btn:hover {
   border-color: #00d4ff;
   color: #00d4ff;
+}
+
+.filter-btn:hover::before {
+  left: 0;
 }
 
 .filter-btn.active {
@@ -45,10 +77,12 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 .project-card {
-  background: rgba(0, 212, 255, 0.05);
+  background: rgba(0, 212, 255, 0.03);
   border: 1px solid rgba(0, 212, 255, 0.2);
   border-radius: 15px;
   overflow: hidden;
@@ -56,13 +90,25 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  backdrop-filter: blur(10px);
+  position: relative;
 }
 
-.project-card:hover {
-  border-color: rgba(0, 212, 255, 0.5);
-  background: rgba(0, 212, 255, 0.08);
-  transform: translateY(-10px);
-  box-shadow: 0 20px 50px rgba(0, 212, 255, 0.15);
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.project-card:hover::before {
+  opacity: 1;
 }
 
 .project-image {
@@ -70,6 +116,7 @@
   height: 200px;
   overflow: hidden;
   background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 153, 255, 0.1) 100%);
+  position: relative;
 }
 
 .image-placeholder {
@@ -80,6 +127,12 @@
   justify-content: center;
   font-size: 3rem;
   color: rgba(0, 212, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.project-card:hover .image-placeholder {
+  font-size: 3.5rem;
+  color: rgba(0, 212, 255, 0.5);
 }
 
 .project-content {
@@ -87,6 +140,8 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 1;
 }
 
 .project-title {
@@ -94,6 +149,10 @@
   color: #ffffff;
   margin-bottom: 1rem;
   font-weight: 600;
+  background: linear-gradient(135deg, #ffffff 0%, #00d4ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .project-description {
@@ -119,6 +178,12 @@
   color: #00d4ff;
   font-size: 0.8rem;
   font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+  background: rgba(0, 212, 255, 0.3);
+  border-color: #00d4ff;
 }
 
 .project-link {
@@ -143,6 +208,98 @@
 
 .project-link:hover i {
   transform: translateX(5px);
+}
+
+@media (max-width: 1024px) {
+  .works {
+    padding: 60px 0;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .works {
+    padding: 50px 0;
+  }
+
+  .works-subtitle {
+    font-size: 1rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .filter-buttons {
+    gap: 0.5rem;
+  }
+
+  .filter-btn {
+    padding: 8px 14px;
+    font-size: 0.8rem;
+  }
+
+  .project-card {
+    border-radius: 10px;
+  }
+
+  .project-image {
+    height: 150px;
+  }
+
+  .project-content {
+    padding: 1.5rem;
+  }
+
+  .project-title {
+    font-size: 1.1rem;
+  }
+
+  .project-description {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .works {
+    padding: 40px 0;
+  }
+
+  .filter-buttons {
+    gap: 0.3rem;
+  }
+
+  .filter-btn {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+
+  .project-image {
+    height: 120px;
+  }
+
+  .project-content {
+    padding: 1rem;
+  }
+
+  .project-title {
+    font-size: 1rem;
+  }
+
+  .project-description {
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .tech-tag {
+    padding: 3px 8px;
+    font-size: 0.7rem;
+  }
 }
 
 @media (max-width: 1024px) {

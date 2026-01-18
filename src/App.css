@@ -18,6 +18,8 @@ body {
   width: 100%;
   min-height: 100vh;
   background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+  overflow-x: hidden;
+  padding-top: 0;
 }
 
 /* Utility Classes */
