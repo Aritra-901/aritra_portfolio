@@ -159,16 +159,6 @@ const Contact = () => {
                   >
                     <i className="fab fa-github"></i>
                   </motion.a>
-                  <motion.a
-                    href="https://twitter.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="social-icon"
-                    whileHover={{ scale: 1.2, rotate: 10 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <i className="fab fa-twitter"></i>
-                  </motion.a>
                 </div>
               </motion.div>
             </motion.div>
