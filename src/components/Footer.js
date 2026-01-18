@@ -26,10 +26,10 @@ const Footer = () => {
         <div className="footer-section">
           <h4>Connect</h4>
           <div className="footer-social">
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/aritra-sarkar-a29078243" target="_blank" rel="noopener noreferrer">
               <i className="fab fa-linkedin"></i>
             </a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/Aritra-901" target="_blank" rel="noopener noreferrer">
               <i className="fab fa-github"></i>
             </a>
           </div>
