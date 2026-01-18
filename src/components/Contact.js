@@ -140,7 +140,7 @@ const Contact = () => {
                 <h4>FIND WITH ME</h4>
                 <div className="social-icons">
                   <motion.a
-                    href="https://linkedin.com"
+                    href="https://www.linkedin.com/in/aritra-sarkar-a29078243"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="social-icon"
@@ -150,7 +150,7 @@ const Contact = () => {
                     <i className="fab fa-linkedin"></i>
                   </motion.a>
                   <motion.a
-                    href="https://github.com"
+                    href="https://github.com/Aritra-901"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="social-icon"
