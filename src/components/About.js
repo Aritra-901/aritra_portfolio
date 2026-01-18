@@ -4,7 +4,7 @@ import {
     SiReact, SiNodedotjs, SiPython, SiMongodb, SiDocker,
     SiGithub, SiGit, SiJavascript, SiHtml5, SiCss3,
     SiNpm, SiBootstrap, SiExpress, SiFigma,
-    SiLinux, SiFirebase, SiRust, SiPostgresql, SiMysql, SiTailwindcss
+    SiLinux, SiFirebase, SiPostgresql, SiMysql, SiTailwindcss
 } from "react-icons/si";
 import { FaCode } from "react-icons/fa";
 import './About.css';
@@ -32,25 +32,6 @@ const About = () => {
         { icon: SiMysql, color: '#00758F', label: 'MySQL' },
         { icon: SiTailwindcss, color: '#06B6D4', label: 'Tailwind' }
     ];
-
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.05,
-            },
-        },
-    };
-
-    const itemVariants = {
-        hidden: { opacity: 0, scale: 0.6 },
-        visible: {
-            opacity: 1,
-            scale: 1,
-            transition: { duration: 0.5 },
-        },
-    };
 
     return (
         <section id="about" className="about">
