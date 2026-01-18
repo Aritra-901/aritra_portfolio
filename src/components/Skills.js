@@ -3,8 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
     SiReact, SiHtml5, SiCss3, SiJavascript, SiTailwindcss,
     SiNodedotjs, SiExpress, SiMongodb, SiMysql, SiPostgresql,
-    SiGit, SiDocker, SiPython, SiBootstrap, SiNpm, SiGithub, 
-    SiFirebase, SiLinux, SiVisualStudioCode, SiPostman
+    SiGit, SiDocker, SiGithub, SiPostman
 } from "react-icons/si";
 import { FaCloud } from "react-icons/fa";
 import { VscCode } from "react-icons/vsc";

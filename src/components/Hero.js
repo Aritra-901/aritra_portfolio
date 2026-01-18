@@ -69,13 +69,6 @@ const Hero = () => {
     },
   };
 
-  const floatingVariants = {
-    animate: {
-      y: [0, -20, 0],
-      transition: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-    },
-  };
-
   return (
     <section id="home" className="hero">
       <div className="hero-container container">
