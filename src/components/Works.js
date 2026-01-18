@@ -46,7 +46,7 @@ const Works = () => {
   return (
     <section id="works" className="works">
       <div className="container">
-        <h2 className="section-title">My Works</h2>
+        <h2 className="section-title">My Projects</h2>
         <p className="works-subtitle">A showcase of my latest projects and creations</p>
 
         <div className="filter-buttons">

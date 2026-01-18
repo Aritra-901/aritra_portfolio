@@ -32,7 +32,7 @@ const Skills = () => {
     };
 
     return (
-        <section className="skills">
+        <section id="skills" className="skills">
             <div className="container">
                 <h2 className="section-title">My Tech Stack</h2>
                 <p className="skills-subtitle">
