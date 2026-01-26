@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import {
     SiReact, SiNodedotjs, SiPython, SiMongodb, SiDocker,
@@ -8,6 +8,48 @@ import {
 } from "react-icons/si";
 import { FaCode } from "react-icons/fa";
 import './About.css';
+
+const Counter = ({ target, duration = 2.5 }) => {
+    const [count, setCount] = useState(0);
+    const countRef = useRef(null);
+    const hasStarted = useRef(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (entries[0].isIntersecting && !hasStarted.current) {
+                    hasStarted.current = true;
+                    let start = 0;
+                    const frameCount = duration * 60;
+                    const increment = target / frameCount;
+                    
+                    const interval = setInterval(() => {
+                        start += increment;
+                        if (start >= target) {
+                            setCount(target);
+                            clearInterval(interval);
+                        } else {
+                            setCount(Math.floor(start));
+                        }
+                    }, 1000 / 60);
+                }
+            },
+            { threshold: 0.1 }
+        );
+
+        if (countRef.current) {
+            observer.observe(countRef.current);
+        }
+
+        return () => {
+            if (countRef.current) {
+                observer.unobserve(countRef.current);
+            }
+        };
+    }, [target, duration]);
+
+    return <span ref={countRef}>{count}</span>;
+};
 
 const About = () => {
     const techIcons = [
@@ -126,17 +168,30 @@ const About = () => {
                         >
                             <motion.div
                                 className="stat"
-                                whileHover={{ scale: 1.1, y: -10 }}
+                                whileHover={{ scale: 1.05, y: -8 }}
                             >
-                                <h3>9+</h3>
+                                <div className="stat-number">
+                                    <Counter target={10} duration={2.5} />+
+                                </div>
                                 <p>Projects Completed</p>
                             </motion.div>
                             <motion.div
                                 className="stat"
-                                whileHover={{ scale: 1.1, y: -10 }}
+                                whileHover={{ scale: 1.05, y: -8 }}
                             >
-                                <h3>3+</h3>
+                                <div className="stat-number">
+                                    <Counter target={3} duration={1.5} />+
+                                </div>
                                 <p>Years Experience</p>
+                            </motion.div>
+                            <motion.div
+                                className="stat"
+                                whileHover={{ scale: 1.05, y: -8 }}
+                            >
+                                <div className="stat-number">
+                                    <Counter target={12} duration={2} />+
+                                </div>
+                                <p>Technologies</p>
                             </motion.div>
                         </motion.div>
                     </motion.div>
