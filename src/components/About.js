@@ -185,7 +185,7 @@ const About = () => {
                                 <p>Years Experience</p>
                             </motion.div>
                             <motion.div
-                                className="stat" 
+                                className="stat"  
                                 whileHover={{ scale: 1.05, y: -8 }}
                             >
                                 <div className="stat-number">
